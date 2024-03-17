@@ -1,8 +1,3 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.sql.Driver;
-
 public class Main
 {
     public static void main(String[] args)
@@ -13,8 +8,6 @@ public class Main
 
         //Generate random strings for account re-creation
         GenerateRandom randomEmail = new GenerateRandom();
-        randomEmail.generateRandomString();
-        GenerateRandom randomPassword = new GenerateRandom();
         randomEmail.generateRandomString();
 
         //Fill out Member Details fields
