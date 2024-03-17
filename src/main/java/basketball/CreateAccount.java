@@ -38,6 +38,9 @@ public class CreateAccount
             case "edge":
                 driver = new EdgeDriver();
                 break;
+            default:
+                driver = new ChromeDriver();
+                    break;
         }
 
         wait = new WebDriverWait(driver, duration);

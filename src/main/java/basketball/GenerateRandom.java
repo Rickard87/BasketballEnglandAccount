@@ -1,3 +1,5 @@
+package basketball;
+
 import java.util.Random;
 
 public class GenerateRandom
