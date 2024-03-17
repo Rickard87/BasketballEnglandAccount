@@ -1,85 +1,61 @@
 package createAccountStepDefs;
 
-import io.cucumber.java.en.And;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import basketball.CreateAccount;
+import org.junit.Assert;
 
-public class MyStepdefs
-{
+public class MyStepdefs {
+
     private CreateAccount createAccount;
+
+    public void setUp(String url, String browser) {
+        // Initialize browser once before running any scenario
+
+        createAccount = new CreateAccount(url, browser);
+        createAccount.navigateToURL();
+    }
+
     @Given("I am on the account creation page")
-    public void iAmOnTheAccountCreationPage()
-    {
+    public void iAmOnTheAccountCreationPage() {
+
     }
 
     @When("I fill in the member details with valid information")
-    public void iFillInTheMemberDetailsWithValidInformation()
-    {
-    }
-
-    @And("I choose a password")
-    public void iChooseAPassword()
-    {
-    }
-
-    @And("I accept the terms")
-    public void iAcceptTheTerms()
-    {
-    }
-
-    @And("I confirm I am of the required age")
-    public void iConfirmIAmOfTheRequiredAge()
-    {
-    }
-
-    @And("I agree to the code of ethics and conduct")
-    public void iAgreeToTheCodeOfEthicsAndConduct()
-    {
-    }
-
-    @And("I register the account")
-    public void iRegisterTheAccount()
-    {
+    public void iFillInTheMemberDetailsWithValidInformation() {
+        // Implement this step
     }
 
     @Then("I should see a confirmation message")
-    public void iShouldSeeAConfirmationMessage()
-    {
+    public void iShouldSeeAConfirmationMessage() {
+        // Implement this step
     }
 
     @When("I fill in the member details with valid information but without a last name")
-    public void iFillInTheMemberDetailsWithValidInformationButWithoutALastName()
-    {
-    }
-
-    @And("I attempt to register the account")
-    public void iAttemptToRegisterTheAccount()
-    {
+    public void iFillInTheMemberDetailsWithValidInformationButWithoutALastName() {
+        // Implement this step
     }
 
     @Then("I should see an error message indicating the last name is missing")
-    public void iShouldSeeAnErrorMessageIndicatingTheLastNameIsMissing()
-    {
-    }
-
-    @And("I choose two different passwords")
-    public void iChooseTwoDifferentPasswords()
-    {
+    public void iShouldSeeAnErrorMessageIndicatingTheLastNameIsMissing() {
+        // Implement this step
     }
 
     @Then("I should see an error message indicating the passwords do not match")
-    public void iShouldSeeAnErrorMessageIndicatingThePasswordsDoNotMatch()
-    {
-    }
-
-    @And("I do not accept the terms")
-    public void iDoNotAcceptTheTerms()
-    {
+    public void iShouldSeeAnErrorMessageIndicatingThePasswordsDoNotMatch() {
+        // Implement this step
     }
 
     @Then("I should see an error message prompting me to accept the terms and conditions")
-    public void iShouldSeeAnErrorMessagePromptingMeToAcceptTheTermsAndConditions()
-    {
+    public void iShouldSeeAnErrorMessagePromptingMeToAcceptTheTermsAndConditions() {
+        // Implement this step
+    }
+    @After
+    public void tearDown() {
+        // Close browser after all scenarios are executed
+        createAccount.quitDriver();
     }
 }
