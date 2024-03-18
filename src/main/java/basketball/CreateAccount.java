@@ -32,12 +32,10 @@ public class CreateAccount
 
         switch (browser)
         {
-            case "chrome":
-                driver = new ChromeDriver();
-                break;
             case "edge":
                 driver = new EdgeDriver();
                 break;
+            case "chrome":
             default:
                 driver = new ChromeDriver();
                     break;
