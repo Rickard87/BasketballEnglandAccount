@@ -5,7 +5,6 @@ Feature: AccountCreation
 
   Scenario Outline: Creating account with invalid and valid information
     Given I provide starting values of browser "<browser>" date "<date>" firstName "<firstName>" lastName "<lastName>" email "<email>" and password "<password>"
-    And I navigate to the account creation page using browser
     When I fill in the member details with valid information but without a last name
     Then I should see an error message indicating the last name is missing
     When I fill in the member details with valid information but without matching passwords
@@ -14,6 +13,7 @@ Feature: AccountCreation
     Then I should see an error message prompting me to accept the terms and conditions
     When I fill in the member details with valid information
     Then I should see a confirmation message
+
 
     Examples:
       | browser | date       | firstName | lastName | email     | password |

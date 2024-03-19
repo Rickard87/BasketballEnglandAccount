@@ -1,4 +1,5 @@
 package basketball;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,14 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CreateAccount
-{
+public class CreateAccount {
     //Remember to run this program in new intelliJ CTRL + ALT + L
 
     //Initializing helpers
     String url;
     WebDriver driver;
-    Duration duration = Duration.ofSeconds(6);
+    Duration duration = Duration.ofSeconds(20);
 
     WebDriverWait wait;
 
@@ -26,32 +26,29 @@ public class CreateAccount
     boolean codeOfEthicsAndConductChecked = false;
     boolean ageLimitChecked = false;
 
-    public CreateAccount(String url, String browser)
-    {
+    public CreateAccount(String url, String browser) {
         this.url = url;
 
-        switch (browser)
-        {
+        switch (browser) {
             case "edge":
                 driver = new EdgeDriver();
                 break;
             case "chrome":
             default:
                 driver = new ChromeDriver();
-                    break;
+                break;
         }
 
         wait = new WebDriverWait(driver, duration);
     }
-    public void navigateToURL()
-    {
+
+    public void navigateToURL() {
         //Navigate to Create account page
         driver.get(url);
     }
 
     //Fills out necessary Member Details fields
-    public void fillMemberDetails(String dateOfBirth, String firstName, String lastName, String email, String confirmEmail)
-    {
+    public void fillMemberDetails(String dateOfBirth, String firstName, String lastName, String email, String confirmEmail) {
         //Fill DateOfBirth
         WebElement dopField = getElement(By.xpath("//*[@id=\"dp\"]"));
         dopField.sendKeys(dateOfBirth);
@@ -77,8 +74,7 @@ public class CreateAccount
     }
 
     //Fills out necessary Password fields
-    public void fillChooseYourPassword(String password, String confirmPassword)
-    {
+    public void fillChooseYourPassword(String password, String confirmPassword) {
         //Fill password
         WebElement passwordField = getElement(By.id("signupunlicenced_password"));
         passwordField.sendKeys(password);
@@ -89,43 +85,38 @@ public class CreateAccount
     }
 
     //Clicks accept on necessary terms boxes
-    public void acceptTerms()
-    {
+    public void acceptTerms() {
         WebElement termsAndConditionsBox = getElement(By.xpath("//*[@id=\"signup_form\"]/div[11]/div/div[2]/div[1]/label/span[3]"));
         termsAndConditionsBox.click();
         termsAndConditionsChecked = true;
     }
 
-    public void acceptAgeLimit()
-    {
+    public void acceptAgeLimit() {
         WebElement ageLimitBox = getElement(By.xpath("//*[@id=\"signup_form\"]/div[11]/div/div[2]/div[2]/label/span[3]"));
         ageLimitBox.click();
         ageLimitChecked = true;
     }
 
-    public void acceptCodeOfEthicsAndConduct()
-    {
+    public void acceptCodeOfEthicsAndConduct() {
         WebElement codeOfEthicsAndConductBox = getElement(By.xpath("//*[@id=\"signup_form\"]/div[11]/div/div[7]/label/span[3]"));
         codeOfEthicsAndConductBox.click();
         codeOfEthicsAndConductChecked = true;
     }
 
-    public void registerAccount()
-    {
+    public void registerAccount() {
         WebElement registerButton = getElement(By.xpath("//*[@id=\"signup_form\"]/div[12]/input"));
         registerButton.click();
     }
-    public void quitDriver()
-    {
+
+    public void quitDriver() {
         driver.quit();
     }
-    public WebElement getElement(By by)
-    {
+
+    public WebElement getElement(By by) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    public void waitToDisappear(By by)
-    {
+    public void waitToDisappear(By by) {
         wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOfElementLocated(by)));
     }
 }

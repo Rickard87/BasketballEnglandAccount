@@ -2,14 +2,13 @@ package basketball;
 
 import java.util.Random;
 
-public class GenerateRandom
-{
+public class GenerateRandom {
     String randomString = "";
-    public void generateRandomString()
-    {
+
+    public void generateRandomString() {
         int leftLimit = 48; // numeral '0'
         int rightLimit = 122; // letter 'z'
-        int targetStringLength = 8;
+        int targetStringLength = 6;
         Random random = new Random();
 
         randomString = random.ints(leftLimit, rightLimit + 1)
@@ -18,8 +17,8 @@ public class GenerateRandom
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
     }
-    public String getRandomString()
-    {
+
+    public String getRandomString() {
         return randomString;
     }
 }
